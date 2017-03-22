@@ -1,0 +1,61 @@
+id,iconClass,pageName,parentid,url,description,annotation
+1,fa fa-calendar-check-o,学籍管理,-1,/department/xj/xj-home.html#/xsgl/xs-import.html,,
+2,fa fa-user-plus,新生管理,1,/department/xj/xj-home.html#/xsgl/xs-import.html,,
+3,,批量导入,2,/department/xj/xj-home.html#/xsgl/xs-import.html,,
+4,,单人导入,2,/department/xj/xj-home.html#/xsgl/add-xs.html,,
+5,,信息维护,2,/department/xj/xj-home.html#/xsgl/xs-info.html,,
+6,,正式入籍,2,/department/xj/xj-home.html#/xsgl/xs-repo.html,,
+7,,入学测试题库,2,/department/xj/xj-home.html#/xsgl/xs-exam.html,,
+8,fa fa-file-text-o,注册管理,1,/department/xj/xj-home.html#/xsgl/xs-registion.html,,
+9,,报到,8,/department/xj/xj-home.html#/xsgl/xs-checkin.html,,
+10,,缴费,8,/department/xj/xj-home.html#/xsgl/xs-fee.html,,
+11,,注册,8,/department/xj/xj-home.html#/xsgl/xs-registion.html,,
+12,,注册,8,/department/xj/xj-home.html#/xsgl/view-registion.html,院系秘书使用,院系秘书
+14,glyphicon glyphicon-plus,异动管理,1,/department/xj/xj-home.html#/xjyd/ydsq.html,,
+15,glyphicon glyphicon-plus,类型设置,14,/department/xj/xj-home.html#/xjyd/ydlx.html,,
+16,glyphicon glyphicon-plus,流程设置,14,/department/xj/xj-home.html#/xjyd/ydlc.html,,
+17,glyphicon glyphicon-plus,异动申请,14,/department/xj/xj-home.html#/xjyd/ydsq.html,,
+18,glyphicon glyphicon-search,异动审核,14,/department/xj/xj-home.html#/xjyd/ydsp.html,,
+19,,信息管理,1,/department/xj/xj-home.html#/lsgl/xj-info.html,,
+20,,分配导师,19,/department/xj/xj-home.html#/xsgl/xj-ds-import.html,,
+21,,信息维护,19,/department/xj/xj-home.html#/lsgl/xj-info.html,,
+22,glyphicon glyphicon-list-alt,助困维护,19,/department/xj/xj-home.html#/xsgl/xs-poverty.html,,
+23,,预毕(结)业管理,1,/department/xj/xj-home.html#/yby-info.html,,
+24,,维护,23,/department/xj/xj-home.html#/yby-info.html,,
+25,,审核,23,/department/xj/xj-home.html#/yby-audit.html,,
+26,,查询,23,/department/xj/xj-home.html#/yby-maintain.html,,
+27,,综合事务管理,1,/department/xj/xj-home.html#/zhsw-yjsz-bb.html,,
+28,,研究生证补办,27,/department/xj/xj-home.html#/zhsw-yjsz-bb.html,,
+29,,学籍卡片打印,27,/department/xj/xj-home.html#/zhsw-xjcard-print.html,,
+30,fa fa-pagelines,培养管理,-1,/department/xj/xj-home.html#/xjyd/1ydsq.html,,
+31,,课程培养,30,/department/xj/pygl/py.html,,
+32,,培养方案,31,/department/xj/pygl/py.html,,
+33,,开课,31,/department/xj/pygl/py.html,,
+34,,专业实践,31,/department/xj/zysj/zysj.html,,
+35,,毕业管理,30,/department/xj/zysj/bygl.html,,
+36,,毕业生,35,/department/xj/zysj/bys.html,,
+37,,终结生,35,/department/xj/zysj/zjs.html,,
+38,,预答辩,35,/department/xj/zysj/yby.html,,
+39,fa fa-cog fa-fw,系统管理,-1,/department/xt/xt-home.html#/zhgl/js-manage.html,,
+40,,权限管理,39,/department/xt/xt-home.html#/zhgl/js-manage.html,,
+41,,角色管理,40,/department/xt/xt-home.html#/zhgl/js-manage.html,,
+42,,账号管理,40,/department/xt/xt-home.html#/zhgl/zh-manage.html,,
+43,,元数据管理,39,/department/xt/xt-home.html#/metadata.html,,
+44,,元数据查看,43,/department/xt/xt-home.html#/metadata.html,,
+45,,学籍,-1,/xs/index.html#/xs-info.html,,学生
+46,,学籍信息查看,45,/xs/index.html#/xs-info.html,,
+47,,学籍异动,45,/xs/index.html#/status-change-apply.html,,
+48,,入学测试,45,/xs/index.html#/enter-exam.html,,
+49,,培养,-1,/xs/index.html#/py-kt.html,,学生
+50,,开题报告,49,/xs/index.html#/py-kt.html,,
+51,,预毕业,-1,/xs/index.html#/yby-check-info.html,,学生
+52,,预毕业信息确认,51,/xs/index.html#/yby-check-info.html,,
+53,,通知管理,39,/department/xt/xt-home.html#/notification.html,,
+54,,通知发布,53,/department/xt/xt-home.html#/notification.html,,
+55,,我发布的通知,53,/department/xt/xt-home.html#/manageNotification.html,,
+56,,查询,23,/department/xj/xj-home.html#/dep-yby-maintain.html,院系使用,院系
+57,,入学,-1,/xs/index.html#/enter-step.html,学生,学生
+58,,入学须知,57,/xs/index.html#/enter-step.html,学生,学生
+59,,学籍,-1,/ls/index.html#/ls-info.html,,导师
+60,,我的学生,59,/ls/index.html#/my-student.html,,导师
+61,,异动审核,59,/ls/index.html#/ydsh.html,,导师

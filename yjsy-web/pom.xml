@@ -1,0 +1,202 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>edu.ecnu</groupId>
+		<artifactId>yjsy</artifactId>
+		<version>0.1</version>
+	</parent>
+
+	<artifactId>yjsy-web</artifactId>
+	<packaging>war</packaging>
+
+	<properties>
+		<poi.version>3.9</poi.version>
+	</properties>
+
+	<build>
+		<finalName>yjsy</finalName>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<server.port>8888</server.port>
+				<server.shutdown.enabled>true</server.shutdown.enabled>
+
+				<datasource.password>root</datasource.password>
+				<datasource.username>root</datasource.username>
+				<datasource.url>jdbc:mysql://localhost:3306/yjsy?useUnicode=true&amp;characterEncoding=UTF-8</datasource.url>
+				<datasource.driver>com.mysql.jdbc.Driver</datasource.driver>
+
+				<redis.database>0</redis.database>
+				<redis.host>58.198.176.191</redis.host>
+				<redis.password>myRedis</redis.password>
+				<redis.port>7379</redis.port>
+				<redis.timeout>3000000</redis.timeout>
+				<redis.enable>false</redis.enable>
+				<redis.store>none</redis.store>
+
+				<jpa.database>MYSQL</jpa.database>
+				<jpa.show-sql>true</jpa.show-sql>
+				<jpa.hibernate.ddl-auto>create</jpa.hibernate.ddl-auto>
+				<jpa.hibernate.naming>org.hibernate.cfg.ImprovedNamingStrategy</jpa.hibernate.naming>
+				<jpa.hibernate.dialect>org.hibernate.dialect.MySQL5Dialect</jpa.hibernate.dialect>
+
+				<base.url>api</base.url>
+
+				<auth.enabled>true</auth.enabled>
+				<auth.site-domain>http://localhost:63342</auth.site-domain>
+				<auth.login>/api/login</auth.login>
+				<auth.logout>/api/logout</auth.logout>
+
+				<ecnu.yjsy.debug>false</ecnu.yjsy.debug>
+				<ecnu.yjsy.logging>log/yjsy.log</ecnu.yjsy.logging>
+			</properties>
+
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</dependency>
+			</dependencies>
+		</profile>
+
+		<profile>
+			<id>release</id>
+			<properties>
+				<server.port>8888</server.port>
+				<server.shutdown.enabled>true</server.shutdown.enabled>
+
+				<datasource.password>root</datasource.password>
+				<datasource.username>yjsy_nginx</datasource.username>
+				<datasource.url>jdbc:mysql://58.198.176.191:3306/yjsy?useUnicode=true&amp;characterEncoding=UTF-8</datasource.url>
+				<datasource.driver>com.mysql.jdbc.Driver</datasource.driver>
+
+				<redis.database>0</redis.database>
+				<redis.host>58.198.176.191</redis.host>
+				<redis.password>myRedis</redis.password>
+				<redis.port>7379</redis.port>
+				<redis.timeout>3000000</redis.timeout>
+				<redis.enable>true</redis.enable>
+				<redis.store>redis</redis.store>
+
+				<jpa.database>MYSQL</jpa.database>
+				<jpa.show-sql>false</jpa.show-sql>
+				<jpa.hibernate.ddl-auto>update</jpa.hibernate.ddl-auto>
+				<jpa.hibernate.naming>org.hibernate.cfg.ImprovedNamingStrategy</jpa.hibernate.naming>
+				<jpa.hibernate.dialect>org.hibernate.dialect.MySQL5Dialect</jpa.hibernate.dialect>
+
+				<base.url>api</base.url>
+
+				<auth.enabled>true</auth.enabled>
+				<auth.site-domain>http://58.198.176.35:18888</auth.site-domain>
+				<auth.login>/api/login</auth.login>
+				<auth.logout>/api/logout</auth.logout>
+
+				<ecnu.yjsy.debug>false</ecnu.yjsy.debug>
+				<ecnu.yjsy.logging>log/yjsy.log</ecnu.yjsy.logging>
+			</properties>
+
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+					<scope>provided</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<dependency>
+			<groupId>edu.ecnu</groupId>
+			<artifactId>yjsy-security</artifactId>
+			<version>0.1</version>
+		</dependency>
+
+		<!-- batch loading -->
+		<dependency>
+			<groupId>org.springframework.batch</groupId>
+			<artifactId>spring-batch-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.batch</groupId>
+			<artifactId>spring-batch-infrastructure</artifactId>
+		</dependency>
+
+		<!-- web container -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- session handling -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-redis</artifactId>
+			<version>1.2.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.session</groupId>
+			<artifactId>spring-session-data-redis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.session</groupId>
+			<artifactId>spring-session</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-pool2</artifactId>
+		</dependency>
+
+		<!-- poi for parsing excel -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+
+		<!-- endpoints -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<!-- live reload -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- utilities to handle file operations -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+
+</project>
